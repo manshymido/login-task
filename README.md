@@ -1,6 +1,6 @@
-# Laravel Authentication Project
+# Authentication System
 
-This is a Laravel-based authentication system that provides user registration, login, and profile management functionality.
+A modern authentication system built with Laravel that provides user registration, login, and profile management functionality.
 
 ## Features
 
@@ -13,53 +13,104 @@ This is a Laravel-based authentication system that provides user registration, l
 - Secure Password Handling
 - Protected Dashboard
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Requirements
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- PHP >= 8.1
+- Composer
+- Node.js & NPM
+- MySQL
+- XAMPP/WAMP/MAMP or similar local development environment
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Installation
 
-## Learning Laravel
+1. Clone the repository
+```bash
+git clone https://github.com/manshymido/login-task.git
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. Navigate to the project directory
+```bash
+cd login-task
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3. Install PHP dependencies
+```bash
+composer install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. Install NPM dependencies
+```bash
+npm install
+```
 
-## Laravel Sponsors
+5. Create and configure environment file
+```bash
+cp .env.example .env
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+6. Generate application key
+```bash
+php artisan key:generate
+```
 
-### Premium Partners
+7. Configure your database in `.env` file
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=login
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+8. Run database migrations
+```bash
+php artisan migrate
+```
 
-## Contributing
+9. Build assets
+```bash
+npm run dev
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+10. Start the local development server
+```bash
+php artisan serve
+```
 
-## Code of Conduct
+The application will be available at `http://localhost:8000`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Usage
 
-## Security Vulnerabilities
+### Registration
+- Visit `/register` to create a new account
+- Fill in your name, email, and password
+- Submit the form to create your account
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Login
+- Visit `/login` to access your account
+- Enter your email and password
+- Use the "Remember me" option to stay logged in
+
+### Dashboard
+- After logging in, you'll be redirected to the dashboard
+- View your profile information
+- Access various protected features
+
+### Profile Management
+- Click on your name in the navigation
+- Select "Profile" to edit your information
+- Update your name, email, or password
+- Delete your account if needed
+
+## Security
+
+- All passwords are hashed
+- Protection against CSRF attacks
+- Session-based authentication
+- Secure password reset process
+- Protected routes using middleware
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
